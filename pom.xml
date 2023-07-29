@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>be.milieuinfo</groupId>
+        <artifactId>acd-parent</artifactId>
+        <version>1.0.9</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <packaging>jar</packaging>
+    <groupId>be.vlaanderen.bodemenondergrond.data.id.graph</groupId>
+    <artifactId>codelijsten-bodemenondergrond-catalogus</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
+    <name>codelijsten-bodemenondergrond-catalogus</name>
+    <description />
+
+    <scm>
+        <connection>scm:git:https://github.com/bodemenondergrond/codelijsten-bodemenondergrond-catalogus.git</connection>
+        <developerConnection>scm:git:https://github.com/bodemenondergrond/codelijsten-bodemenondergrond-catalogus.git</developerConnection>
+        <url>https://github.com/bodemenondergrond/codelijsten-bodemenondergrond-catalogus.git</url>
+        <tag>${bamboo.SVN</tag>
+    </scm>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <minimizeJar>true</minimizeJar>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <includes>
+                                        <include>be/vlaanderen/bodemenondergrond/data/id/catalog/**</include>
+                                        <include>be/vlaanderen/bodemenondergrond/data/id/dataset/codelijst-bemonsteringstype/**</include>
+                                    </includes>
+                                    <excludes>
+                                        <exclude>**/*json</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <createDependencyReducedPom>false</createDependencyReducedPom>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <excludes>
+                </excludes>
+            </resource>
+        </resources>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>be.vlaanderen.bodemenondergrond.data.id.graph</groupId> <!-- e.g. be.vlaanderen.bodemenondergrond.data.id.graph -->
+            <artifactId>codelijst-bemonsteringstype</artifactId> <!-- e.g. codelijst-testrepo -->
+            <version>0.1.0-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,23 @@
+##sparql --data=../resources/be/vlaanderen/bodemenondergrond/data/id/dataset/codelijst-whatever/catalog.ttl --query catalog_visualisatie.sparql --results=TURTLE | rdf2dot  | dot -Tpng | display
+
+
+prefix sd:    <http://www.w3.org/ns/sparql-service-description#> 
+prefix dcterms:   <http://purl.org/dc/terms/>
+prefix spdx:  <http://spdx.org/rdf/terms#>
+prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#>
+
+CONSTRUCT
+{
+ ?s rdfs:label ?label ; ?p ?o .
+
+    
+}
+where  
+{ 
+?s ?p ?o .
+?o a ?c
+optional{?s rdfs:label ?label }
+FILTER(REGEX(str(?s), 'bodemenondergrond|omgeving', 'i'))
+FILTER(REGEX(str(?o), 'bodemenondergrond|omgeving', 'i'))
+}  
+
