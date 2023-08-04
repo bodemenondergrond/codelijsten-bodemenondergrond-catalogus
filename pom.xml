@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>be.milieuinfo</groupId>
         <artifactId>acd-parent</artifactId>
@@ -12,11 +13,13 @@
     <artifactId>codelijsten-bodemenondergrond-catalogus</artifactId>
     <version>0.1.0-SNAPSHOT</version>
     <name>codelijsten-bodemenondergrond-catalogus</name>
-    <description />
+    <description/>
 
     <scm>
-        <connection>scm:git:https://github.com/bodemenondergrond/codelijsten-bodemenondergrond-catalogus.git</connection>
-        <developerConnection>scm:git:https://github.com/bodemenondergrond/codelijsten-bodemenondergrond-catalogus.git</developerConnection>
+        <connection>scm:git:https://github.com/bodemenondergrond/codelijsten-bodemenondergrond-catalogus.git
+        </connection>
+        <developerConnection>scm:git:https://github.com/bodemenondergrond/codelijsten-bodemenondergrond-catalogus.git
+        </developerConnection>
         <url>https://github.com/bodemenondergrond/codelijsten-bodemenondergrond-catalogus.git</url>
         <tag>${bamboo.SVN</tag>
     </scm>
@@ -39,7 +42,9 @@
                                     <artifact>*:*</artifact>
                                     <includes>
                                         <include>be/vlaanderen/bodemenondergrond/data/id/catalog/**</include>
-                                        <include>be/vlaanderen/bodemenondergrond/data/id/dataset/codelijst-bemonsteringstype/**</include>
+                                        <include>
+                                            be/vlaanderen/bodemenondergrond/data/id/dataset/codelijst-bemonsteringstype/**
+                                        </include>
                                     </includes>
                                     <excludes>
                                         <exclude>**/*json</exclude>
@@ -65,10 +70,29 @@
             </resource>
         </resources>
     </build>
+
     <dependencies>
         <dependency>
-            <groupId>be.vlaanderen.bodemenondergrond.data.id.graph</groupId> <!-- e.g. be.vlaanderen.bodemenondergrond.data.id.graph -->
-            <artifactId>codelijst-bemonsteringstype</artifactId> <!-- e.g. codelijst-testrepo -->
+            <groupId>be.vlaanderen.bodemenondergrond.data.id.graph</groupId>
+            <artifactId>codelijst-bemonsteringstype</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>be.vlaanderen.bodemenondergrond.data.id.graph</groupId>
+            <artifactId>codelijst-bemonsteringsinstrument</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>be.vlaanderen.bodemenondergrond.data.id.graph</groupId>
+            <artifactId>codelijst-bemonsteringsprocedure</artifactId>
+            <version>0.1.0-SNAPSHOT</version>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>be.vlaanderen.bodemenondergrond.data.id.graph</groupId>
+            <artifactId>codelijst-materiaalklasse</artifactId>
             <version>0.1.0-SNAPSHOT</version>
             <optional>true</optional>
         </dependency>
